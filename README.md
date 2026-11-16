@@ -14,6 +14,7 @@ SPK WEB
 ├─ package-lock.json
 ├─ privacy.html
 ├─ README-2.md
+├─ README.md
 ├─ robots.txt
 ├─ sitemap.xml
 ├─ support.html
