@@ -26,6 +26,21 @@
       "source": "/contact",
       "destination": "/support",
       "permanent": true
+    },
+    {
+      "source": "/ar/privacy-policy",
+      "destination": "/ar/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/ar/terms-of-service",
+      "destination": "/ar/terms",
+      "permanent": true
+    },
+    {
+      "source": "/ar/contact",
+      "destination": "/ar/support",
+      "permanent": true
     }
   ],
   "headers": [
