@@ -1,3 +1,4 @@
+@font-face{font-family:"Alexandria";font-style:normal;font-weight:100 900;font-display:swap;src:url("/assets/fonts/Alexandria-VariableFont_wght.ttf") format("truetype")}
 :root{
   --bg0:#01030a;--bg1:#050c22;--panel:rgba(8,20,52,.72);--panel-solid:#07122b;--panel-hi:#0c1e4d;
   --deep:#0b3fa8;--electric:#2f80ff;--azure:#12b7ff;--cyan:#38f0ff;--ice:#d2f8ff;
@@ -7,7 +8,7 @@
 }
 *{box-sizing:border-box}
 html{color-scheme:dark;scroll-behavior:smooth;background:#02060f;-webkit-text-size-adjust:100%}
-html[lang="ar"]{--font:system-ui,-apple-system,"Segoe UI","Noto Sans Arabic","Noto Kufi Arabic",Tahoma,Arial,sans-serif}
+html[lang="ar"]{--font:"Alexandria","Noto Sans Arabic","Segoe UI",Tahoma,system-ui,Arial,sans-serif}
 html[lang="ar"] *{letter-spacing:0!important}
 body{margin:0;min-height:100vh;display:flex;flex-direction:column;color:var(--text);font:16px/1.7 var(--font);-webkit-font-smoothing:antialiased;}
 body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none;
@@ -73,8 +74,6 @@ h1 .glow{background:linear-gradient(90deg,var(--azure),var(--cyan),var(--ice));-
 .ring.r2::after,.ring.r1::after{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}
 .ring.r2::after{background:var(--red);box-shadow:0 0 16px var(--red);top:auto;bottom:-5px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.phone{position:relative;margin:0;padding:8px;border-radius:38px;background:linear-gradient(160deg,#2a56b8,#0a1a45 38%,#0b2a63);border:1px solid rgba(110,190,255,.55);box-shadow:0 0 0 1px rgba(2,8,24,.9),0 24px 60px rgba(0,0,0,.55),0 0 50px rgba(18,183,255,.28)}
-.phone img{display:block;width:100%;border-radius:30px}
 .hero-phone{width:270px;z-index:2;animation:float 7s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-14px)}}
 .float-tag{position:absolute;z-index:3;padding:9px 15px;border-radius:14px;background:rgba(7,18,43,.82);border:1px solid var(--line-hi);backdrop-filter:blur(8px);color:var(--ice);font-weight:700;font-size:14px;box-shadow:0 0 24px rgba(18,183,255,.30);animation:float 6s ease-in-out infinite}
@@ -105,7 +104,8 @@ h2+.sub,.sub{margin:0 0 30px;color:var(--muted);max-width:660px;font-size:17px}
 .shots figcaption b{display:block;color:var(--ice);font-size:16px}
 .shots figcaption span{color:var(--muted);font-size:14px;line-height:1.5;display:block;margin-top:2px}
 .shots .phone{transition:transform .3s,box-shadow .3s}
-.shots figure:hover .phone{transform:translateY(-6px) rotate(-1deg);box-shadow:0 0 0 1px rgba(2,8,24,.9),0 28px 60px rgba(0,0,0,.6),0 0 64px rgba(56,240,255,.38)}
+.shots figure:hover .phone{transform:translateY(-6px) rotate(-1deg)}
+.shots figure:hover .phone .frame{box-shadow:0 0 0 .25cqw rgba(6,10,22,.95),0 28px 60px rgba(0,0,0,.6),0 0 64px rgba(56,240,255,.38)}
 .hint{color:var(--muted);font-size:14px;margin:0}
 
 /* split + equalizer */
@@ -237,3 +237,41 @@ footer.site p{margin:0 0 6px}
 .doc .ltr,.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
 .stats+p{margin-top:26px}
 .hint{margin-top:16px}
+
+/* ===== realistic flagship phone mockup (sizes in cqw = % of phone width) ===== */
+.phone{position:relative;margin:0;direction:ltr;container-type:inline-size}
+.phone .frame{position:relative;padding:.9cqw;border-radius:13.5cqw;background:linear-gradient(145deg,#d5deee 0%,#6a7a96 20%,#232c40 46%,#74849f 72%,#dbe5f4 100%);box-shadow:0 0 0 .25cqw rgba(6,10,22,.95),0 24px 60px rgba(0,0,0,.55),0 0 50px rgba(18,183,255,.28)}
+.phone .screen{position:relative;overflow:hidden;display:flex;flex-direction:column;border:1.6cqw solid #03050b;border-radius:12.6cqw;background:#000}
+.phone .screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.11),rgba(255,255,255,0) 30%)}
+.phone .screen img{display:block;width:100%;height:auto;border-radius:0}
+.phone .sbar{position:relative;display:flex;align-items:center;justify-content:space-between;height:8cqw;padding:0 7cqw 0 8cqw;background:var(--top,#04122e);color:#fff;font:600 3.3cqw/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.phone .time{font-weight:600;letter-spacing:.1cqw}
+.phone .cam{position:absolute;left:50%;top:50%;width:3.7cqw;height:3.7cqw;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 32%,#2a3f78 0,#070b16 42%,#000 72%);box-shadow:0 0 0 .4cqw #02040a,inset 0 0 .6cqw rgba(90,140,255,.55)}
+.phone .sico{display:flex;align-items:center;gap:1.3cqw}
+.phone .sico svg{height:3.3cqw;width:3.3cqw;fill:currentColor;color:#fff}
+.phone .sico .bat{width:4.4cqw}
+.phone .nbar{display:flex;align-items:center;justify-content:center;height:5.4cqw;background:var(--bot,#02060f)}
+.phone .nbar i{display:block;width:31cqw;height:1.15cqw;border-radius:1cqw;background:rgba(255,255,255,.82)}
+.phone .hw{position:absolute;width:1cqw;border-radius:.5cqw;background:linear-gradient(90deg,#aab8d0,#38445a)}
+.phone .hw.pw{right:-.7cqw;top:31cqw;height:14cqw}
+.phone .hw.vol{left:-.7cqw;top:25cqw;height:22cqw}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* per-screenshot system-bar colours (sampled from each screenshot) */
+.shot-home{--top:#05223e;--bot:#01040d}
+.shot-scenes{--top:#06233e;--bot:#01040d}
+.shot-eq{--top:#05233e;--bot:#01040d}
+.shot-fx{--top:#05223e;--bot:#01040d}
+.shot-protect{--top:#05233e;--bot:#01040d}
+.shot-tools{--top:#05233e;--bot:#01040d}
+
+/* Arabic typography (Alexandria: light / regular / bold) */
+html[lang="ar"] body{line-height:1.9}
+html[lang="ar"] h1{font-weight:800;line-height:1.4;font-size:clamp(30px,5vw,52px)}
+html[lang="ar"] h2{font-weight:700;line-height:1.45}
+html[lang="ar"] h3,html[lang="ar"] .card h3{font-weight:600}
+html[lang="ar"] .lead,html[lang="ar"] .sub,html[lang="ar"] h2+.sub{font-weight:300}
+html[lang="ar"] .card p,html[lang="ar"] .steps p,html[lang="ar"] .scene span,html[lang="ar"] td,html[lang="ar"] .doc p,html[lang="ar"] .doc li{font-weight:400}
+html[lang="ar"] .btn,html[lang="ar"] .eyebrow,html[lang="ar"] .hnav a,html[lang="ar"] .badge{font-weight:600}
+html[lang="ar"] .eyebrow{font-size:14px}
+html[lang="ar"] .brand{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
